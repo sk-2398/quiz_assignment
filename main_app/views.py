@@ -18,24 +18,25 @@ def home(request):
 def questions():
     return Quiz.objects.order_by('?')[:5]
 
-# quiz_obj=list(Quiz.objects.all())
-# question_list=random.sample(quiz_obj,5)
-   
-
 question_list=list(questions())
 
 li=[]
 def quiz(request):
+    # getting value to render 1st question after starting quiz as q_no
     q_no=int(request.GET.get('next'))
+    # getting value of answer selected by user
     choice=request.GET.get('choice')
-    print(choice)
+    # checking if end quiz question
     end_quiz=check(q_no,4)
     if end_quiz and choice==question_list[4].answer:
         return redirect('result')
+    
+    # storing question from question list in variable  
     que= question_list[q_no]
-    
-    
+    # checing if second last que
     last_que=check(q_no,3)   
+    # checking if selected answer is correct or not
+    # if yes qno+=1 ande store next question from list in variable que
     if choice==que.answer:
         q_no+=1
         que=question_list[q_no]
@@ -54,8 +55,6 @@ def result(request):
     if restart=="restart":
         li.clear()
         return redirect('home')
-        
-        
         
     attempt=int(len(li))
     if attempt>=3:

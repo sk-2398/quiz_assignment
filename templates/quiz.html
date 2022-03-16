@@ -23,8 +23,11 @@
                         <label for="{{que.option4}}">{{que.option4}}</label>
                     </div>
                 </div>
-                <button class="submit"  name="next"  value="{{no}}">Submit</button>
-                
+                {% if last_que %}
+                    <button class="submit"  name="next"  value="{{no}}">Submit</button>
+                {% else %}
+                    <button class="submit"  name="next"  value="{{no}}">Next</button>
+                {% endif %}
             </form>
      
 
