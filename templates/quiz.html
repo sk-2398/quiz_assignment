@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  
+        <img src="{% static que.img_url %}" alt="">
+ 
+            <form >
+                <div class="options">
+                    <div class="opt">
+                        <input type="radio" id="{{que.option1}}" name="choice" value="{{que.option1}}">
+                        <label for="{{que.option1}}">{{que.option1}}</label>
+                    </div>
+                    <div class="opt">
+                        <input type="radio" id="{{que.option2}}" name="choice" value="{{que.option2}}">
+                        <label for="{{que.option2}}">{{que.option2}}</label>
+                    </div>
+                    <div class="opt">
+                        <input type="radio" id="{{que.option3}}" name="choice" value="{{que.option3}}">
+                        <label for="{{que.option3}}">{{que.option3}}</label>
+                    </div>
+                    <div class="opt">
+                        <input type="radio" id="{{que.option4}}" name="choice" value="{{que.option4}}">
+                        <label for="{{que.option4}}">{{que.option4}}</label>
+                    </div>
+                </div>
+                <button class="submit"  name="next"  value="{{no}}">Submit</button>
+                
+            </form>
+     
+
+     
+ 
+{% endblock %}
